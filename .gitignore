@@ -1,0 +1,62 @@
+/************************************************************************
+* Atividade Supervisionada - Programacao Estruturada    				*
+* Turma: 842															*
+* @Autor: Allan Barros       											*
+* @Autor: Daniel Carvalho												*	
+* @Autor: Matheus Ribeiro												*	
+* @Autor: Tiago Reis    												*		
+*																		*	
+*************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#define n 5
+ 
+int funcao (int f){
+	int i,fat=1; 
+	for (i=1; i<=f; i++)
+	      fat*=i;
+	return fat; }
+
+
+int main (){
+  
+	char oper,saida,nome[50]; 
+	int f,vetor[n],i;
+
+
+ 	printf("Ola, qual o seu nome ? ");
+ 	gets (nome);
+	
+ 	
+	printf ("Vamos comecar %s, escolha uma das opcoes abaixo\n", nome);  
+	printf ("[1] Funcao\n");
+	printf ("[2] Vetor\n");
+			
+	oper = getchar ();
+	
+
+switch (oper){
+		case '1': {
+          printf("Deseja saber o fatorial de qual numero? "); 
+          scanf("%d", &f);
+          printf("Resultado: %d\n", funcao(f));
+          break;}
+	
+	
+	    case '2': {
+	      for (i=0; i<n; i++){
+             printf ("\nDigite o numero de posicao %d do vetor: \n", i);
+             scanf ("%d", &vetor[i]);
+          }
+          for (i=0; i<n; i++){
+              printf ("\nO local %d esta armazenado o caracter: %d\n", i,vetor[i]); 
+        }
+        break;}
+    default : printf("\nNao foi selecionada uma das opcoes acima!\n"); 
+	}
+	    
+system ("pause");
+return 0; 
+
+}
