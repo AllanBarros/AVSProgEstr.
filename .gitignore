@@ -2,15 +2,15 @@
 * Atividade Supervisionada - Programacao Estruturada    				*
 * Turma: 842															*
 * @Autor: Allan Barros       											*
-* @Autor: Daniel Carvalho												*	
-* @Autor: Matheus Ribeiro												*	
-* @Autor: Tiago Reis    												*		
-*																		*	
+* @Autor: Daniel Carvalho												*
+* @Autor: Matheus Ribeiro												*
+* @Autor: Tiago Reis    												*
+*																		*
 *************************************************************************/
 
 #include <stdio.h>
-#include <stdlib.h>
- 
+
+
  struct cadastro{
     char nome[30];
 	int idade;
@@ -20,79 +20,78 @@
 };
 
 int funcao (int f){
-	int i,fat=1; 
+	int i,fat=1;
 	for (i=1; i<=f; i++)
 	      fat*=i;
 	return fat; }
 
 
 int main (){
-  
-	char decisao, oper,saida,nome[50]; 
-	int f,i,n;
+
+	char oper,saida,nome[50];
+	int f,i,n,decisao;
         struct cadastro vetor[20];
 
  	printf("Ola, qual o seu nome ? ");
  	gets (nome);
-	
- 	
-	printf ("Vamos comecar %s, escolha uma das opcoes abaixo\n", nome);  
+
+
+	printf ("Vamos comecar %s, escolha uma das opcoes abaixo\n", nome);
 	printf ("[1] Calcular fatorial\n");
 	printf ("[2] Fazer Cadastros\n");
-			
+
 	oper = getchar ();
-	
+
 
 switch (oper){
 		case '1': {
-          printf("Deseja saber o fatorial de qual numero? "); 
+          printf("Deseja saber o fatorial de qual numero? ");
           scanf("%d", &f);
           printf("Resultado: %d\n", funcao(f));
           break;}
-	
-	
+
+
 	    case '2': {
-	    
+
 	    printf("Digite numero de cadastros:");
 	    scanf("%d",&n);
-	    
+
 	   for (i=0 ; i < n ; i++)
 	     {
-	       printf("Digite nome:");
+	       printf("\nDigite nome: ");
 	       scanf("%s",vetor[i].nome);
-	 
-	       printf("Digite Idade:");
+
+	       printf("Digite Idade: ");
 	       scanf("%d",&vetor[i].idade);
-	 
-	       printf("Digite Email:");
+
+	       printf("Digite Email: ");
 	       scanf("%s",vetor[i].email);
-	 
-	       printf("Digite mensalidade:");
-	       scanf("%f",&vetor[i].valor);  
+
+	       printf("Digite mensalidade: ");
+	       scanf("%f",&vetor[i].valor);
+	     }
+
+	      printf("\nDeseja ver cadastro?\n");
+	      printf("[1] Sim\n");
+	      printf("[2] Nao\n");
 	      
-	      printf("Deseja ver cadastro?S ou N");
-	      decisao = getchar();
-	     
-	      if(decisao =="S")
+	      scanf ("%d", &decisao);
+	      printf ("\n\n");
 	      
-	        printf("%s\n",vetor[i].nome);
-	 	printf("%d\n",vetor[i].idade);
-	 	printf("%s\n",vetor[i].email);
-	 	printf("%2.f\n",vetor[i].valor);
-		}
-	
-	      for (i=0; i<n; i++){
-             printf ("\nDigite o numero de posicao %d do vetor: \n", i);
-             scanf ("%d", &vetor[i]);
-          }
-          for (i=0; i<n; i++){
-              printf ("\nO local %d esta armazenado o caracter: %d\n", i,vetor[i]); 
-        }
-        break;}
-    default : printf("\nNao foi selecionada uma das opcoes acima!\n"); 
+
+	      if(decisao !=2){
+	      	
+           for (i=0 ; i < n ; i++){
+	        printf("Nome %d: %s\n",i,vetor[i].nome);
+	 	    printf("Idade %d: %d\n",i,vetor[i].idade);
+	 	    printf("Email %d: %s\n",i,vetor[i].email);
+	 	    printf("Mensalidade %d: %2.f\n",i,vetor[i].valor);
+	 	    printf ("\n");
+		 }}break;}
+    default : printf("\nNao foi selecionada uma das opcoes acima!\n");
 	}
-	    
-system ("PAUSE");
-return 0; 
+
+
+return 0;
 
 }
